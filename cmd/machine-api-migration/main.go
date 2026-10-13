@@ -26,6 +26,7 @@ import (
 	mapiv1beta1 "github.com/openshift/api/machine/v1beta1"
 	awsv1 "sigs.k8s.io/cluster-api-provider-aws/v2/api/v1beta2"
 	openstackv1 "sigs.k8s.io/cluster-api-provider-openstack/api/v1beta1"
+	vspherev1 "sigs.k8s.io/cluster-api-provider-vsphere/apis/v1beta1"
 	clusterv1 "sigs.k8s.io/cluster-api/api/core/v1beta2"
 
 	"github.com/openshift/api/features"
@@ -55,6 +56,7 @@ func initScheme(scheme *runtime.Scheme) {
 	utilruntime.Must(configv1.Install(scheme))
 	utilruntime.Must(awsv1.AddToScheme(scheme))
 	utilruntime.Must(openstackv1.AddToScheme(scheme))
+	utilruntime.Must(vspherev1.AddToScheme(scheme))
 	utilruntime.Must(clusterv1.AddToScheme(scheme))
 }
 
